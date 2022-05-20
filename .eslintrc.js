@@ -31,6 +31,7 @@ module.exports = {
       },
     ],
     'import/no-extraneous-dependencies': 0,
+    'react/function-component-definition': 0,
   },
   settings: {
     'import/resolver': {
