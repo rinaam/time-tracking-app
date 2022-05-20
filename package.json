@@ -5,16 +5,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "lint": "eslint src --ext .tsx,.ts",
-    "lint:fix": "npm run lint -- --fix"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run lint && npm t",
-      "pre-commit": "npm run lint && npm t"
-    }
+    "lint:fix": "npm run lint -- --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "^18.1.0",
