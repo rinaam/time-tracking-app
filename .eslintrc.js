@@ -30,6 +30,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'import/no-extraneous-dependencies': 0,
   },
   settings: {
     'import/resolver': {
