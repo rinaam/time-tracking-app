@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshoot 1`] = `
+<DocumentFragment>
+  <table
+    class="table-wrapper"
+  >
+    <thead>
+      <tr>
+        <th>
+          title
+        </th>
+        <th>
+          title1
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          title
+        </td>
+        <td>
+          title1
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;

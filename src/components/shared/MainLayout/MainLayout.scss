@@ -1,0 +1,7 @@
+@import '../../../styles/spacing.scss';
+
+.container {
+    margin: 0 auto;
+    padding: $spacing-s;
+    max-width: 1200px;
+}

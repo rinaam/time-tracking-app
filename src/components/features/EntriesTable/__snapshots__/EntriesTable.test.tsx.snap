@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render component and match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <table
+      class="table-wrapper"
+    >
+      <thead>
+        <tr>
+          <th>
+            Actions
+          </th>
+          <th>
+            Date
+          </th>
+          <th>
+            Service
+          </th>
+          <th>
+            Person
+          </th>
+          <th>
+            Note
+          </th>
+          <th>
+            Time
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <button
+              type="button"
+            >
+              delete
+            </button>
+          </td>
+          <td>
+            2022-05-21
+          </td>
+          <td>
+            App design
+          </td>
+          <td>
+            Marina  Savic
+          </td>
+          <td>
+            &lt;ul&gt;&lt;li&gt;foo bar&lt;/li&gt;&lt;/ul&gt;
+          </td>
+          <td>
+            100
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button
+              type="button"
+            >
+              delete
+            </button>
+          </td>
+          <td>
+            2022-05-21
+          </td>
+          <td>
+            Design
+          </td>
+          <td>
+            Marina  Savic
+          </td>
+          <td>
+            &lt;ul&gt;&lt;li&gt;2&lt;/li&gt;&lt;/ul&gt;
+          </td>
+          <td>
+            60
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button
+      type="button"
+    >
+      Prev
+    </button>
+    <button
+      type="button"
+    >
+      next
+    </button>
+  </div>
+</DocumentFragment>
+`;
