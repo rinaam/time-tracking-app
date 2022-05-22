@@ -8,6 +8,7 @@
   color: white;
   border-radius: $spacing-xs;
   min-width: 60px;
+  cursor: pointer;
 
   &.btn-disabled {
     opacity: 0.5;
