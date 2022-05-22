@@ -47,7 +47,7 @@ npm t
 
 #### Folder structure
 
-- Inspired by [Infinum FE Handbook] (https://infinum.com/handbook/frontend/react/project-structure)
+- Inspired by [Infinum FE Handbook](https://infinum.com/handbook/frontend/react/project-structure)
 
 #### State management
 
