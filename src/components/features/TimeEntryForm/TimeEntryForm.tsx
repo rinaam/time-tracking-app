@@ -48,6 +48,7 @@ const TimeEntryForm: React.FC<TimeEntryFormProps> = ({ services, onAddEntry }) =
   };
 
   const handleStateChange =
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (fn: React.Dispatch<React.SetStateAction<string>>) => (e: ChangeEvent<any>) => {
       fn(e.currentTarget.value);
     };

@@ -40,8 +40,8 @@ const EntriesTable: React.FC<EntriesTableProps> = ({ timeEntries, person, onDele
       ];
     });
 
-  if (!timeEntries) {
-    return <div>loading time entries</div>;
+  if (!timeEntries?.data.length) {
+    return <h1>There is no tracked time for today</h1>;
   }
 
   return <Table tableHead={TABLE_HEAD} tableBody={mapTimeEntriesToTableBody(timeEntries)} />;
