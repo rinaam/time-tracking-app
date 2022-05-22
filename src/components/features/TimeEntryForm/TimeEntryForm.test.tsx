@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import TimeEntryForm from './TimeEntryForm';
 import servicesFixture from '../../../tests/fixtures/services';
 import { ServicesResponseModel } from '../../../models/Services';
@@ -33,7 +33,11 @@ describe('TimeEntryForm', () => {
     );
 
     const service = await screen.findByTestId('test-id-service');
-    fireEvent.change(service, { target: { value: '1687626' } });
+    fireEvent.click(service);
+
+    const serviceItem = await within(service).findByText('Acquiring new clients');
+
+    fireEvent.click(serviceItem);
 
     const note = await screen.findByTestId('test-id-note');
     fireEvent.change(note, { target: { value: 'note' } });

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, SyntheticEvent, useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import { ServicesResponseModel } from '../../../models/Services';
 import Button from '../../core/Button/Button';
 import Dropdown, { DropdownOptions } from '../../core/Dropdown/Dropdown';
@@ -24,12 +24,12 @@ const mapToDropdownOptions = (services?: ServicesResponseModel): DropdownOptions
   }));
 
 const TimeEntryForm: React.FC<TimeEntryFormProps> = ({ services, onAddEntry }) => {
-  const [service, setService] = useState('-');
+  const [service, setService] = useState('');
   const [time, setTime] = useState('');
   const [note, setNote] = useState('');
 
   const resetToInitialState = () => {
-    setService('-');
+    setService('');
     setTime('');
     setNote('');
   };
@@ -49,11 +49,11 @@ const TimeEntryForm: React.FC<TimeEntryFormProps> = ({ services, onAddEntry }) =
 
   const handleStateChange =
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (fn: React.Dispatch<React.SetStateAction<string>>) => (e: ChangeEvent<any>) => {
-      fn(e.currentTarget.value);
+    (fn: React.Dispatch<React.SetStateAction<string>>) => (value: string) => {
+      fn(value);
     };
 
-  const isButtonDisabled = !note || !time || service === '-';
+  const isButtonDisabled = !note || !time || !service;
 
   return (
     <form data-testid="time-entries-table" onSubmit={handleSubmit} className="time-entry-wrapper">

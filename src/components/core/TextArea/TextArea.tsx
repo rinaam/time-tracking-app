@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import './TextArea.scss';
 
 interface TextAreaProps {
@@ -6,7 +6,7 @@ interface TextAreaProps {
   id: string;
   name: string;
   value: string;
-  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange: (value: string) => void;
 }
 
 const TextArea: React.FC<TextAreaProps> = ({ label, id, name, value, onChange }) => (
@@ -20,7 +20,7 @@ const TextArea: React.FC<TextAreaProps> = ({ label, id, name, value, onChange })
       name={name}
       className="text-field"
       value={value}
-      onChange={onChange}
+      onChange={(e) => onChange(e.currentTarget.value)}
     />
   </div>
 );

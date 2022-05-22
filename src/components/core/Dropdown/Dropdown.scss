@@ -1,17 +1,52 @@
 @import '../../../styles/spacing.scss';
 @import '../../../styles/colors.scss';
 @import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
 
 .dropdown-wrapper {
   @include form-element-wrapper;
   width: 50%;
+  cursor: pointer;
 
   .dropdown-label {
     @include form-element-label;
   }
 
-  .options-wrapper {
+  .dropdown-container {
     @include form-element-field;
     height: 50px;
+    position: relative;
+
+    p {
+      padding: $spacing-m
+    }
+
+    .options-wrapper {
+      background-color: $background-white;
+      box-shadow: $box-shadow-primary;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 999;
+      padding: $spacing-s;
+      width: 300px;
+      height: 200px;
+      overflow-y: scroll;
+
+      li {
+        padding: $spacing-m 0;
+        cursor: pointer
+      }
+
+      li:hover {
+        background-color: $background-hover;
+      }
+    }
   }
+}
+
+.dropdown-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
 }

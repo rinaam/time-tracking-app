@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { useState } from 'react';
 import './Dropdown.scss';
 
 export interface DropdownOptions {
@@ -11,27 +11,43 @@ interface DropdownProps {
   name: string;
   value: string;
   options: DropdownOptions[];
-  onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
+  onChange: (value: string) => void;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ label, options, name, value, onChange }) => (
-  <div className="dropdown-wrapper">
-    <label className="dropdown-label">{label}</label>
-    <select
-      data-testid={`test-id-${name}`}
-      name={name}
-      className="options-wrapper"
-      value={value}
-      onChange={onChange}
-    >
-      <option value="">-</option>
-      {options.map((option) => (
-        <option value={option.value} key={option.value}>
-          {option.label}
-        </option>
-      ))}
-    </select>
-  </div>
-);
+const Dropdown: React.FC<DropdownProps> = ({ label, options, name, value, onChange }) => {
+  const [isOptionsOpen, setIsOptionsOpen] = useState(false);
+
+  const toggleOptions = () => {
+    setIsOptionsOpen(!isOptionsOpen);
+  };
+
+  const handleClick = (option: DropdownOptions) => {
+    setIsOptionsOpen(false);
+    onChange(option.value);
+  };
+
+  return (
+    <>
+      {isOptionsOpen && (
+        <div className="dropdown-overlay" onClick={() => setIsOptionsOpen(false)} />
+      )}
+      <div className="dropdown-wrapper">
+        <label className="dropdown-label">{label}</label>
+        <div className="dropdown-container" onClick={toggleOptions} data-testid={`test-id-${name}`}>
+          <p>{options.find((option) => option.value === value)?.label}</p>
+          {isOptionsOpen && (
+            <ul className="options-wrapper">
+              {options.map((option) => (
+                <li key={option.value} onClick={() => handleClick(option)}>
+                  {option.label}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default Dropdown;

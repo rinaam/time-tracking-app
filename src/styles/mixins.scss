@@ -1,5 +1,6 @@
 @import './spacing.scss';
 @import './colors.scss';
+@import './variables.scss';
 
 @mixin form-element-wrapper {
   display: flex;
@@ -14,10 +15,10 @@
 
 @mixin form-element-field {
   border: none;
-  border-bottom: 1px solid $border-light;
+  border-bottom: $border-primary;
 
   &:focus {
     outline: none;
-    border-bottom: 2px solid $border-indigo;
+    border-bottom: $border-focused;
   }
 }

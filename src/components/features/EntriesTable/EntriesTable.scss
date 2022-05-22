@@ -1,0 +1,11 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/spacing.scss';
+
+.empty-message {
+    margin: $spacing-l 0;
+
+    font: {
+        size: 18;
+        weight: 900;
+    }
+}

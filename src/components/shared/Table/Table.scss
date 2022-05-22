@@ -1,28 +1,29 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/spacing.scss';
+@import '../../../styles/variables.scss';
 
 
 .table-wrapper {
   width: 100%;
-  border: 1px solid $border-light;
+  border: $border-primary;
   margin: $spacing-xl 0;
-  background-color: white;
+  background-color: $background-white;
 
   thead {
-    border-bottom: 1px solid $border-light;
+    border-bottom: $border-primary;
   }
 
   th {
     padding: $spacing-xl;
     color: $label-text;
-    border-right: 1px solid $border-light;
+    border-right: $border-primary;
   }
 
   td {
     padding: $spacing-xl;
     text-align: center;
-    border-right: 1px solid $border-light;
-    border-bottom: 1px solid $border-light;
+    border-right: $border-primary;
+    border-bottom: $border-primary;
   }
 
   tbody {

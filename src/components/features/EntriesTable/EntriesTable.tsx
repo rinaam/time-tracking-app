@@ -4,6 +4,7 @@ import { TimeEntryResponseModel } from '../../../models/TimeEntry';
 import { TABLE_HEAD } from '../../../utils/constants';
 import Button from '../../core/Button/Button';
 import Table, { TableBodyField } from '../../shared/Table/Table';
+import './EntriesTable.scss';
 
 interface EntriesTableProps {
   timeEntries?: TimeEntryResponseModel;
@@ -14,7 +15,6 @@ interface EntriesTableProps {
 const EntriesTable: React.FC<EntriesTableProps> = ({ timeEntries, person, onDeleteEntry }) => {
   const mapTimeEntriesToTableBody = (entriesData?: TimeEntryResponseModel): TableBodyField[][] =>
     (entriesData?.data || []).map((entry) => {
-      // this was very hard to figure out :(
       const serviceName =
         entriesData?.included.find((inc) => inc.id === entry.relationships.service.data.id)
           ?.attributes.name || '';
@@ -41,7 +41,7 @@ const EntriesTable: React.FC<EntriesTableProps> = ({ timeEntries, person, onDele
     });
 
   if (!timeEntries?.data.length) {
-    return <h1>There is no tracked time for today</h1>;
+    return <p className="empty-message">There is no tracked time for today</p>;
   }
 
   return <Table tableHead={TABLE_HEAD} tableBody={mapTimeEntriesToTableBody(timeEntries)} />;

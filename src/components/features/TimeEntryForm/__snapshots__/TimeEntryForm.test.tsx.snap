@@ -17,27 +17,12 @@ exports[`TimeEntryForm should render component and match snapshot 1`] = `
         >
           Service
         </label>
-        <select
-          class="options-wrapper"
+        <div
+          class="dropdown-container"
           data-testid="test-id-service"
-          name="service"
         >
-          <option
-            value=""
-          >
-            -
-          </option>
-          <option
-            value="1687626"
-          >
-            Acquiring new clients
-          </option>
-          <option
-            value="1687627"
-          >
-            Administrative work
-          </option>
-        </select>
+          <p />
+        </div>
       </div>
       <div
         class="input-wrapper"

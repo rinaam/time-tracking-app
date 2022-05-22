@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import './Input.scss';
 
 interface InputProps {
@@ -7,7 +7,7 @@ interface InputProps {
   type: string;
   name: string;
   value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (value: string) => void;
 }
 
 const Input: React.FC<InputProps> = ({ label, id, type, name, value, onChange }) => (
@@ -21,7 +21,7 @@ const Input: React.FC<InputProps> = ({ label, id, type, name, value, onChange })
       name={name}
       className="input-field"
       value={value}
-      onChange={onChange}
+      onChange={(e) => onChange(e.currentTarget.value)}
       data-testid={`test-id-${name}`}
     />
   </div>

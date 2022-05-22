@@ -2,9 +2,11 @@
 
 exports[`EntriesTable should render component and match snapshot when no time entries 1`] = `
 <DocumentFragment>
-  <h1>
+  <p
+    class="empty-message"
+  >
     There is no tracked time for today
-  </h1>
+  </p>
 </DocumentFragment>
 `;
 
