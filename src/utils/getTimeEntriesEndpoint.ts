@@ -1,7 +1,8 @@
+import { ENDPOINTS } from './constants';
 import { Person } from '../models/Person';
 import getEndpointUrl from './getEndpointUrl';
 
-const timeEntriesEndpoint = process.env.REACT_APP_TIME_ENTRIES_ENDPOINT as string;
+const timeEntriesEndpoint = ENDPOINTS.TIME_ENTRIES_ENDPOINT;
 
 export const getTimeEntriesEndpointFilters = (person: Person) => {
   const today = new Date();

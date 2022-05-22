@@ -1,51 +1,29 @@
 import React from 'react';
-import useFetch from '../../../hooks/useFetch';
 import { Person } from '../../../models/Person';
 import { TimeEntryResponseModel } from '../../../models/TimeEntry';
-import getTimeEntriesEndpoint, {
-  getTimeEntriesEndpointFilters,
-} from '../../../utils/getTimeEntriesEndpoint';
+import { TABLE_HEAD } from '../../../utils/constants';
 import Button from '../../core/Button/Button';
 import Table, { TableBodyField } from '../../shared/Table/Table';
 
 interface EntriesTableProps {
+  timeEntries?: TimeEntryResponseModel;
   person: Person;
+  onDeleteEntry: (entryId: string) => void;
 }
 
-const tableHead = [
-  { text: 'Actions' },
-  { text: 'Date' },
-  { text: 'Service' },
-  { text: 'Person' },
-  { text: 'Note' },
-  { text: 'Time' },
-];
-
-const EntriesTable: React.FC<EntriesTableProps> = ({ person }) => {
-  const { data, makeRequest, isLoading, refetch } = useFetch<TimeEntryResponseModel>({
-    endpoint: `${getTimeEntriesEndpoint()}${getTimeEntriesEndpointFilters(person)}`,
-    immediate: true,
-  });
-
-  const handleDeleteEntry = (timeEntryId: string) => {
-    makeRequest({ method: 'DELETE', endpoint: `${getTimeEntriesEndpoint()}/${timeEntryId}` }).then(
-      refetch,
-    );
-  };
-
-  const mapTimeEntriesToTableBody = (
-    timeEntries: TimeEntryResponseModel | null,
-  ): TableBodyField[][] =>
-    (timeEntries?.data || []).map((entry) => {
+const EntriesTable: React.FC<EntriesTableProps> = ({ timeEntries, person, onDeleteEntry }) => {
+  const mapTimeEntriesToTableBody = (entriesData?: TimeEntryResponseModel): TableBodyField[][] =>
+    (entriesData?.data || []).map((entry) => {
+      // this was very hard to figure out :(
       const serviceName =
-        timeEntries?.included.find((inc) => inc.id === entry.relationships.service.data.id)
+        entriesData?.included.find((inc) => inc.id === entry.relationships.service.data.id)
           ?.attributes.name || '';
 
       const personName = `${person.attributes.first_name}  ${person.attributes.last_name}`;
 
       return [
         {
-          component: <Button onClick={() => handleDeleteEntry(entry.id)} text="delete" />,
+          component: <Button type="button" onClick={() => onDeleteEntry(entry.id)} text="delete" />,
           id: `delete-${entry.id}`,
         },
         { text: entry.attributes.date, id: `date-${entry.id}` },
@@ -62,28 +40,11 @@ const EntriesTable: React.FC<EntriesTableProps> = ({ person }) => {
       ];
     });
 
-  const handlePrevClick = () => {
-    makeRequest({
-      query: `?filter[person_id]=271497`,
-    });
-  };
-
-  const handleNextClick = () => {
-    makeRequest();
-  };
-
-  if (isLoading) {
-    return <div>Loading...</div>;
+  if (!timeEntries) {
+    return <div>loading time entries</div>;
   }
 
-  return (
-    <div>
-      <Table tableHead={tableHead} tableBody={mapTimeEntriesToTableBody(data)} />
-
-      <Button text="Prev" onClick={handlePrevClick} />
-      <Button text="next" onClick={handleNextClick} />
-    </div>
-  );
+  return <Table tableHead={TABLE_HEAD} tableBody={mapTimeEntriesToTableBody(timeEntries)} />;
 };
 
 export default EntriesTable;

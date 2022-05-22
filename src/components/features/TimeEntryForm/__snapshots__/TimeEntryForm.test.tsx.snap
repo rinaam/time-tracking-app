@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeEntryForm should render component and match snapshot 1`] = `
+<DocumentFragment>
+  <form
+    class="time-entry-wrapper"
+    data-testid="time-entries-table"
+  >
+    <div
+      class="section"
+    >
+      <div
+        class="dropdown-wrapper"
+      >
+        <label
+          class="dropdown-label"
+        >
+          Service
+        </label>
+        <select
+          class="options-wrapper"
+          data-testid="test-id-service"
+          name="service"
+        >
+          <option
+            value=""
+          >
+            -
+          </option>
+          <option
+            value="1687626"
+          >
+            Acquiring new clients
+          </option>
+          <option
+            value="1687627"
+          >
+            Administrative work
+          </option>
+        </select>
+      </div>
+      <div
+        class="input-wrapper"
+      >
+        <label
+          class="input-label"
+          for="time"
+        >
+          Time
+        </label>
+        <input
+          class="input-field"
+          data-testid="test-id-time"
+          id="time"
+          name="time"
+          type="number"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="text-wrapper"
+    >
+      <label
+        class="text-label"
+        for="note"
+      >
+        Note
+      </label>
+      <textarea
+        class="text-field"
+        data-testid="test-id-note"
+        id="note"
+        name="note"
+      />
+    </div>
+    <button
+      class="btn-wrapper btn-disabled"
+      disabled=""
+      type="submit"
+    >
+      Save
+    </button>
+  </form>
+</DocumentFragment>
+`;

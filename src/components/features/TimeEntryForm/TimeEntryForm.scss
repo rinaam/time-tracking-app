@@ -1,0 +1,14 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/spacing.scss';
+
+.time-entry-wrapper {
+  border: 1px solid $border-light;
+  padding: $spacing-s;
+  background-color: white;
+
+  .section {
+    margin-bottom: $spacing-s;
+    display: flex;
+
+  }
+}

@@ -1,4 +1,6 @@
-const base = process.env.REACT_APP_BASE_URL;
+import { ENDPOINTS } from './constants';
+
+const base = ENDPOINTS.BASE_URL;
 
 const getEndpointUrl = (endpoint: string): string => base + endpoint;
 

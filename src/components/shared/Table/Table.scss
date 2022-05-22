@@ -6,6 +6,7 @@
   width: 100%;
   border: 1px solid $border-light;
   margin: $spacing-xl 0;
+  background-color: white;
 
   thead {
     border-bottom: 1px solid $border-light;
@@ -27,7 +28,7 @@
   tbody {
     tr {
       &:hover {
-        background-color: $background-light;
+        background-color: $background-hover;
       }
     }
   }

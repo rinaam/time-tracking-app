@@ -4,19 +4,28 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 import oranizationMembershipsResponse from './tests/fixtures/organizationMemberships';
+import servicesFixture from './tests/fixtures/services';
 import timeEntries from './tests/fixtures/timeEntries';
 
 jest.useFakeTimers().setSystemTime(new Date('2022-05-21'));
 
-// nise article https://kentcdodds.com/blog/stop-mocking-fetch
+// nice article https://kentcdodds.com/blog/stop-mocking-fetch
 
 async function mockFetch(url: string, config: unknown) {
+  console.log('makin request with ', url);
   switch (url) {
-    case '/api/v2/organization_memberships': {
+    case 'https://api.productive.io/api/v2/organization_memberships': {
       return {
         ok: true,
         status: 200,
         json: async () => oranizationMembershipsResponse,
+      };
+    }
+    case 'https://api.productive.io/api/v2/services': {
+      return {
+        ok: true,
+        status: 200,
+        json: async () => servicesFixture,
       };
     }
     case 'https://api.productive.io/api/v2/time_entries?filter[person_id]=271497&filter[after]=2022-05-21&filter[before]=2022-05-22': {

@@ -31,6 +31,9 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     'react/function-component-definition': 0,
     'object-curly-newline': 0,
+    'jsx-a11y/label-has-associated-control': 0,
+    'react/button-has-type': 0,
+    'react/require-default-props': 0,
   },
   settings: {
     'import/resolver': {

@@ -1,0 +1,15 @@
+@import '../../../styles/spacing.scss';
+@import '../../../styles/colors.scss';
+@import '../../../styles/mixins.scss';
+
+.text-wrapper {
+    @include form-element-wrapper;
+
+    .text-label {
+        @include form-element-label;
+    }
+
+    .text-field {
+        @include form-element-field;
+    }
+}

@@ -1,0 +1,17 @@
+@import '../../../styles/spacing.scss';
+@import '../../../styles/colors.scss';
+@import '../../../styles/mixins.scss';
+
+.input-wrapper {
+    @include form-element-wrapper;
+    width: 50%;
+
+    .input-label {
+        @include form-element-label;
+    }
+
+    .input-field {
+        @include form-element-field;
+        height: 50px;
+    }
+}

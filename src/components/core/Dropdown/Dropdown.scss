@@ -1,0 +1,17 @@
+@import '../../../styles/spacing.scss';
+@import '../../../styles/colors.scss';
+@import '../../../styles/mixins.scss';
+
+.dropdown-wrapper {
+  @include form-element-wrapper;
+  width: 50%;
+
+  .dropdown-label {
+    @include form-element-label;
+  }
+
+  .options-wrapper {
+    @include form-element-field;
+    height: 50px;
+  }
+}

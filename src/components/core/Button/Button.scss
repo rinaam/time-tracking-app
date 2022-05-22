@@ -1,0 +1,15 @@
+@import '../../../styles/spacing.scss';
+@import '../../../styles/colors.scss';
+
+.btn-wrapper {
+  border: none;
+  background-color: $background-indigo;
+  padding: $spacing-s;
+  color: white;
+  border-radius: $spacing-xs;
+  min-width: 60px;
+
+  &.btn-disabled {
+    opacity: 0.5;
+  }
+}

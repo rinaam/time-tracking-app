@@ -1,7 +1,10 @@
 @import '../../../styles/spacing.scss';
+@import '../../../styles/colors.scss';
 
 .container {
     margin: 0 auto;
     padding: $spacing-s;
     max-width: 1200px;
+    background-color: $background-light;
+    min-height: 100vh;
 }
