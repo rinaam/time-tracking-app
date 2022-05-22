@@ -53,3 +53,14 @@ npm t
 
 - I didn't use any shared state management tool (Redux or Context) since I have one Page, so the children have direct access to the state
 - All fetching logic is in [HomePage](./src/pages/index.tsx) 
+
+## TODO (If I had more time)
+
+- Skeleton loader
+- Error handling
+- Success messages (Toast component)
+- Pagination
+- Sorting, filtering
+- Better looking design (Design is not my strong suit :) )
+- Better and more test coverage
+- Login screen 

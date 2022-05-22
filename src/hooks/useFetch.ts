@@ -27,6 +27,7 @@ const useFetch = <TDataType>({
 }: UseFetchArgs): UseFetchReturn<TDataType> => {
   const [data, setData] = useState<TDataType | undefined>();
   const [error, setError] = useState('');
+
   const requestRef = useRef(false);
 
   const makeRequest = async (args?: MakeRequestArgs): Promise<void> =>
