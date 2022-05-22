@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ENV } from '../utils/constants';
 
 interface UseFetchArgs {
@@ -27,9 +27,14 @@ const useFetch = <TDataType>({
 }: UseFetchArgs): UseFetchReturn<TDataType> => {
   const [data, setData] = useState<TDataType | undefined>();
   const [error, setError] = useState('');
+  const requestRef = useRef(false);
 
   const makeRequest = async (args?: MakeRequestArgs): Promise<void> =>
     new Promise((resolve) => {
+      if (requestRef.current) {
+        return;
+      }
+      requestRef.current = true;
       fetch((args?.endpoint || endpoint) + (args?.query || ''), {
         method: args?.method || method || 'GET',
         headers: {
@@ -52,6 +57,7 @@ const useFetch = <TDataType>({
           setError(err.message);
         })
         .finally(() => {
+          requestRef.current = false;
           resolve();
         });
     });
