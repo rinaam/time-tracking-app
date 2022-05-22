@@ -6,6 +6,8 @@ import '@testing-library/jest-dom';
 import oranizationMembershipsResponse from './tests/fixtures/organizationMemberships';
 import timeEntries from './tests/fixtures/timeEntries';
 
+jest.useFakeTimers().setSystemTime(new Date('2022-05-21'));
+
 // nise article https://kentcdodds.com/blog/stop-mocking-fetch
 
 async function mockFetch(url: string, config: unknown) {
@@ -30,6 +32,16 @@ async function mockFetch(url: string, config: unknown) {
     }
   }
 }
+
+// eslint-disable-next-line import/prefer-default-export
+export const mockDeleteRequestRefetch = (timeEntryId: string) => async () => ({
+  ok: true,
+  status: 200,
+  json: async () => ({
+    ...timeEntries,
+    data: timeEntries.data.filter((entry) => entry.id !== timeEntryId),
+  }),
+});
 
 beforeAll(() => jest.spyOn(window, 'fetch'));
 beforeEach(() => (window.fetch as jest.Mock).mockImplementation(mockFetch));

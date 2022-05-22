@@ -27,10 +27,13 @@ const Table: React.FC<TableProps> = ({ tableHead, tableBody }) => (
     </thead>
     <tbody>
       {tableBody.map((row) => (
-        <tr key={`row-${row[0].id}`}>
+        <tr key={`row-${row[0].id}`} data-testid={`row-${row[0].id}`}>
           {row.map((field) => {
             if (field.text) {
-              return <td key={field.id}>{field.text}</td>;
+              return (
+                // eslint-disable-next-line react/no-danger
+                <td key={field.id} dangerouslySetInnerHTML={{ __html: field.text as string }} />
+              );
             }
             return <td key={field.id}>{field.component}</td>;
           })}

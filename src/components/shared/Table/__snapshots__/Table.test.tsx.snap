@@ -16,7 +16,9 @@ exports[`should match snapshoot 1`] = `
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr
+        data-testid="row-1"
+      >
         <td>
           title
         </td>
