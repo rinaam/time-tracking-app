@@ -12,7 +12,6 @@ jest.useFakeTimers().setSystemTime(new Date('2022-05-21'));
 // nice article https://kentcdodds.com/blog/stop-mocking-fetch
 
 async function mockFetch(url: string, config: unknown) {
-  console.log('makin request with ', url);
   switch (url) {
     case 'https://api.productive.io/api/v2/organization_memberships': {
       return {
